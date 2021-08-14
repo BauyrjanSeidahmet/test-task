@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     flexGrow: 1,
-    color: '#172853'
+    color: 'inherit'
   },
   btn: {
     marginRight: 10,
@@ -32,12 +32,12 @@ const Header = () => {
             <Button
               component={Link}
               to='/'
-              color='#172853'
+              color='inherit'
               className={classes.btn}
             >
               Главная
             </Button>
-            <Button component={Link} to='/basket' color='#172853' className={classes.btn}>
+            <Button component={Link} to='/basket' color='inherit' className={classes.btn}>
               Корзина
             </Button>
           </Grid>
