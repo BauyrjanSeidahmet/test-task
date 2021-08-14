@@ -7,7 +7,7 @@ const instance = axios.create(
 
 instance.interceptors.request.use(req => {
     const users = store.getState().users;
-    if (users.user) req.headers["Authorization"] = users.user.token;
+    if (users.user) req.headers["Authorization"] = `Bearer ${users.user.token}`;
     return req;
   });
 
