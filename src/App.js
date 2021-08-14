@@ -1,8 +1,14 @@
+import React from 'react';
+import {Switch, Route} from "react-router-dom";
+import Categories from './containers/Categories/Categories';
+import Login from './containers/Login/Login';
+
 const App = () => {
   return (
-    <div className="App">
-      Here will be App
-    </div>
+    <Switch>
+      <Route exact path='/' component={Categories}/>
+      <Route exact path='/login' component={Login}/>
+    </Switch>
   );
 }
 
