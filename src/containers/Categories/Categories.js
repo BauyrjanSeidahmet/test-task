@@ -1,27 +1,27 @@
-import React, {useEffect} from "react";
-import {useSelector, useDispatch} from "react-redux";
-import { Grid, Typography } from '@material-ui/core';
-import { fetchCategories } from "../../store/actions/productsUser";
-
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import CategoryItem from '../../components/CategoryItem/CategoryItem';
+import { fetchCategories } from '../../store/actions/productsUser';
+import './Categories.css'
 
 const Categories = () => {
   const dispatch = useDispatch();
 
-  const categories = useSelector((state) => state.products.categories);
+  const categories = useSelector(state => state.products.categories);
 
   useEffect(() => {
     dispatch(fetchCategories());
-}, [dispatch]);
+  }, [dispatch]);
 
-console.log('categories', categories);
-
-  return (
-    <Grid>
-      <Typography variant='h5'>
-        Categories page
-      </Typography>
-    </Grid>
-  );
+  return <div className='Categories'>
+    {categories.map(cat => {
+      return <CategoryItem
+          id={cat.uuid}
+          image={cat.picture}
+          name={cat.name}
+      />
+    })}
+  </div>;
 };
 
 export default Categories;
