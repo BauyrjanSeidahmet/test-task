@@ -1,7 +1,6 @@
 import React from 'react';
 import {Switch, Route} from "react-router-dom";
 import Layout from './components/Layout/Layout';
-import ProductsItem from './components/ProductItem/ProductItem';
 import Categories from './containers/Categories/Categories';
 import Login from './containers/Login/Login';
 import Products from './containers/Products/Products';
