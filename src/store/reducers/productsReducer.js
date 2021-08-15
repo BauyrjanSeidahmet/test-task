@@ -3,7 +3,7 @@ import { FETCH_CATEGORIES_FAILURE, FETCH_CATEGORIES_SUCCESS, FETCH_PRODUCTS_FAIL
 const initialState = {
   categories: [],
   products: [],
-  catError: null,
+  getCatError: null,
   getProductError: null,
 };
 
@@ -12,7 +12,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_CATEGORIES_SUCCESS:
       return {...state, categories: action.categories};
     case FETCH_CATEGORIES_FAILURE:
-      return {...state, catError: action.error};
+      return {...state, getCatError: action.error};
     case FETCH_PRODUCTS_SUCCESS:
       return {...state, products: action.products};
     case FETCH_PRODUCTS_FAILURE:
