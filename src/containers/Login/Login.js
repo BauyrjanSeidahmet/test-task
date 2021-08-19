@@ -37,18 +37,12 @@ const Login = () => {
     await dispatch(loginUser({ ...state }));
   };
 
-  console.log('qate', error);
-
   return (
-    <UserForm
-      title='Войти'
-      onSubmit={submitFormHandler}
-      buttonText='Войти'
-    >
+    <UserForm title='Войти' onSubmit={submitFormHandler} buttonText='Войти'>
       {error && (
         <Alert severity='error' className={classes.alert}>
           <AlertTitle>Error</AlertTitle>
-          {error.response.data.details ? error.response.data.details[0].message : error.response.data.error}
+          {error.response.data.detail}
         </Alert>
       )}
       <Grid item xs={12}>
