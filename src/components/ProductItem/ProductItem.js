@@ -34,7 +34,7 @@ const ProductItem = ({ image, name, brand, description, id, chosen }) => {
       <Modal show={showModal} close={closeModal}>
         <ModalInside image={readyImage} name={name} brand={brand} description={description} />
       </Modal>
-      <img src={readyImage} alt='Avatar' style={{ width: '100%' }} className='catImage' />
+      <img src={readyImage} alt='Avatar' className='catImage' />
       <button onClick={onClickProduct}>?</button>
       <div className='container'>
         <h4>
