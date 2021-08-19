@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import SearchIcon from '../../assets/images/search.svg'
 import './SearchBar.css'
