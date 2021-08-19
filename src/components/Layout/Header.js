@@ -32,7 +32,7 @@ const Header = () => {
         <Button component={Link} to='/' color='inherit' className={classes.btn}>
           Главная
         </Button>
-        <Button component={Link} to='/basket' color='inherit' className={classes.btn}>
+        <Button component={Link} to='/cart' color='inherit' className={classes.btn}>
           Корзина
         </Button>
       </Grid>
