@@ -1,3 +1,4 @@
+import React from 'react';
 import './ModalInside.css';
 
 const ModalInside = ({ name, brand, description }) => {
