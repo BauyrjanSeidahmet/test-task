@@ -14,7 +14,9 @@ const Modal = ({ children, show, close }) => {
         }}
       >
         <div className='modalBtnWrap'>
-          <button className='modalBtn' onClick={close}>X</button>
+          <button className='modalBtn' onClick={close}>
+            X
+          </button>
         </div>
         <div>{children}</div>
       </div>
