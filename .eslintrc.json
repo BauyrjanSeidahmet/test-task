@@ -1,0 +1,63 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "warn",
+            {
+                "usePrettierrc": true,
+                "arrowParens": "always",
+                "bracketSpacing": true,
+                "endOfLine": "lf",
+                "htmlWhitespaceSensitivity": "css",
+                "insertPragma": false,
+                "jsxBracketSameLine": false,
+                "jsxSingleQuote": true,
+                "printWidth": 120,
+                "proseWrap": "preserve",
+                "quoteProps": "as-needed",
+                "requirePragma": false,
+                "semi": true,
+                "singleQuote": true,
+                "tabWidth": 2,
+                "trailingComma": "es5",
+                "useTabs": false
+            }
+        ],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "no-unused-vars": "warn",
+        "func-names": "off",
+        "no-console": "off",
+        "no-process-exit": "off",
+        "object-shorthand": "off",
+        "class-methods-use-this": "off",
+        "react/prop-types": "off",
+        "import/prefer-default-export": "off"
+    }
+}
