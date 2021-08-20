@@ -5,6 +5,7 @@ import {
   FETCH_CATEGORIES_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
   FETCH_PRODUCTS_SUCCESS,
+  REMOVE_PRODUCT,
 } from '../actionTypes';
 import axios from '../../axiosApi';
 
@@ -48,3 +49,4 @@ export const fetchProducts = (url) => {
 
 export const addProduct = (id) => ({ type: ADD_PRODUCT, id });
 export const decreaseProduct = (id) => ({ type: DECREASE_PRODUCT, id });
+export const removeProduct = (id) => ({ type: REMOVE_PRODUCT, id });
