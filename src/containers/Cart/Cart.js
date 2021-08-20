@@ -54,7 +54,7 @@ const Cart = () => {
         <button onClick={sendOrder}>Потвердить</button>
         <button onClick={closeModal}>Отменить</button>
       </Modal>
-      <div>
+      <div className='cartItems'>
         {cart.map((item) => {
           return (
             <CartItem
@@ -75,11 +75,13 @@ const Cart = () => {
       </div>
       <div className='total'>
         <div className='totalBox'>
-          <h4>Итого</h4>
+          <h4>ИТОГО</h4>
           <hr />
           <p>{allQty} вещи</p>
           <p>Общая сумма {totalPrice} тг</p>
-          <button onClick={onClick}>Оформить</button>
+          <button className='orderBtn' onClick={onClick}>
+            Оформить
+          </button>
         </div>
       </div>
     </div>

@@ -22,14 +22,18 @@ const CartItem = ({ image, price, name, qty, brand, description, onAdd, onDecrea
         <ModalInside image={readyImage} name={name} brand={brand} description={description} />
       </Modal>
       <div className='detail'>
-        <button onClick={onClick}>?</button>
+        <button className='btns' onClick={onClick}>
+          ?
+        </button>
       </div>
       <div className='imageWrap'>
         <img src={readyImage} alt='product' className='cardImage' />
       </div>
       <div className='textInfo'>
         <p>{name}</p>
-        <p>Срок доставки/2 дня</p>
+        <p>
+          Срок доставки/<span className='days'>2 дня</span>
+        </p>
       </div>
       <div className='count'>
         <button onClick={onAdd}>+</button>
@@ -40,7 +44,9 @@ const CartItem = ({ image, price, name, qty, brand, description, onAdd, onDecrea
         <p className='price'>{price} тг</p>
       </div>
       <div className='remove'>
-        <button onClick={onRemove}>X</button>
+        <button className='btns' onClick={onRemove}>
+          X
+        </button>
       </div>
     </div>
   );
