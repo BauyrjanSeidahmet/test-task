@@ -14,6 +14,7 @@ const initialState = {
   getCatError: null,
   getProductError: null,
   cart: [],
+  totalPrice: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -34,6 +35,7 @@ const reducer = (state = initialState, action) => {
         cart: inCart
           ? state.cart.map((item) => (item.uuid === action.id ? { ...item, qty: item.qty + 1 } : item))
           : [...state.cart, { ...item1, qty: 1 }],
+        totalPrice: state.totalPrice + item1.price,
       };
     case DECREASE_PRODUCT:
       const inCart1 = state.cart.find((cartItem) => (cartItem.uuid === action.id ? true : false));
@@ -46,11 +48,14 @@ const reducer = (state = initialState, action) => {
             ? state.cart.filter((item) => item.uuid !== action.id)
             : state.cart.map((item) => (item.uuid === action.id ? { ...item, qty: item.qty - 1 } : item))
           : [...state.cart],
+        totalPrice: state.totalPrice - itemInCard.price,
       };
     case REMOVE_PRODUCT:
+      const item = state.cart.find((cartItem) => cartItem.uuid === action.id);
       return {
         ...state,
         cart: state.cart.filter((item) => item.uuid !== action.id),
+        totalPrice: state.totalPrice - item.price * item.qty,
       };
     default:
       return state;
