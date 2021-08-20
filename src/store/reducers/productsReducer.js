@@ -1,5 +1,6 @@
 import {
   ADD_PRODUCT,
+  CLEAR_CART,
   DECREASE_PRODUCT,
   FETCH_CATEGORIES_FAILURE,
   FETCH_CATEGORIES_SUCCESS,
@@ -60,6 +61,8 @@ const reducer = (state = initialState, action) => {
         cart: state.cart.filter((item) => item.uuid !== action.id),
         totalPrice: state.totalPrice - item.price * item.qty,
       };
+    case CLEAR_CART:
+      return { ...state, cart: [], totalPrice: 0 };
     default:
       return state;
   }
