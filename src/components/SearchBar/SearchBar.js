@@ -13,8 +13,8 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
-      <input value={input} onChange={onChange} />
+    <div className='seachBar'>
+      <input className='inputSearch' placeholder='Найти вещь' value={input} onChange={onChange} />
       <NavLink to={`/products?search=${input}`}>
         <img alt='search icon' src={SearchIcon} />
       </NavLink>

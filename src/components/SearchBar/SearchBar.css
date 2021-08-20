@@ -1,0 +1,8 @@
+.seachBar {
+  display: flex;
+  align-items: center;
+}
+
+.inputSearch {
+  margin-right: 5px;
+}

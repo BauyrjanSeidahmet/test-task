@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import Header from './Header';
+import Header from './Header/Header';
+import './Layout.css';
 
 const Layout = ({ children }) => (
-  <div style={{ maxWidth: '1000px', margin: '20px auto' }}>
+  <div className='layout'>
     <Header />
     <Container maxWidth='xl'>{children}</Container>
   </div>
