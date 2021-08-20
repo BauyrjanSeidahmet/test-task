@@ -1,10 +1,24 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import CartItem from '../../components/CartItem/CartItem';
+import { addProduct, decreaseProduct, removeProduct } from '../../store/actions/productsActions';
 import './Cart.css';
 
 const Cart = () => {
   const cart = useSelector((state) => state.products.cart);
+  const dispatch = useDispatch();
+
+  const onAdd = (id) => {
+    dispatch(addProduct(id));
+  };
+
+  const onDecrease = (id) => {
+    dispatch(decreaseProduct(id));
+  };
+
+  const onRemove = (id) => {
+    dispatch(removeProduct(id));
+  };
 
   const form = cart.length ? (
     <div className='Cart'>
@@ -19,6 +33,9 @@ const Cart = () => {
             qty={item.qty}
             brand={item.hint.title}
             description={item.hint.description}
+            onAdd={() => onAdd(item.uuid)}
+            onDecrease={() => onDecrease(item.uuid)}
+            onRemove={() => onRemove(item.uuid)}
           />
         );
       })}
