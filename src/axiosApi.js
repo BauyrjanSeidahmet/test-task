@@ -7,7 +7,7 @@ instance.interceptors.request.use((req) => {
   // const users = store.getState().users;
   // if (users.user) req.headers['Authorization'] = `Bearer ${users.user.token}`;
   req.headers['Authorization'] =
-    'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI5NDc3NjE3LCJqdGkiOiI0OTVjYzIwMzk1MjA0OGVhYjI3OWRmNDQ5YmU4M2ZhZSIsInVzZXJfaWQiOiJiZGY2ZjVjNS0wMmM1LTQ2ZTgtOGNlMy1kYmE4YjFlNjJhMGUifQ.YkUJWi0n2oRRwnYD3Gxy-dI09OXXkwAfUIkYB_9HOeI';
+    'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI5NTY0NDM4LCJqdGkiOiJhMTYxYzhlMjEwZGQ0N2IzOTk2ZmEwM2U2NGZjZjk3NiIsInVzZXJfaWQiOiJiZGY2ZjVjNS0wMmM1LTQ2ZTgtOGNlMy1kYmE4YjFlNjJhMGUifQ.4W8oUC6o0ftnwDMLYTsXcOytKCR6WBOkRoF9-PT4WTs';
   return req;
 });
 

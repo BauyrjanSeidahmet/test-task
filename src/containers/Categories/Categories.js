@@ -15,9 +15,12 @@ const Categories = () => {
 
   return (
     <div className='Categories'>
-      {categories.map((cat) => {
-        return <CategoryItem key={cat.uuid} id={cat.uuid} image={cat.picture} name={cat.name} />;
-      })}
+      <h3>Категории</h3>
+      <div className='CategoriesList'>
+        {categories.map((cat) => {
+          return <CategoryItem key={cat.uuid} id={cat.uuid} image={cat.picture} name={cat.name} />;
+        })}
+      </div>
     </div>
   );
 };

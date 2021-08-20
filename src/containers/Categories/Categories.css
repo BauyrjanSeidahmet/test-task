@@ -1,4 +1,9 @@
 .Categories {
+  text-align: center;
+  color: #172853;
+}
+
+.CategoriesList {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: auto;
