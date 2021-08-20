@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CartItem from '../../components/CartItem/CartItem';
 import { addProduct, decreaseProduct, removeProduct } from '../../store/actions/productsActions';
@@ -7,6 +8,8 @@ import './Cart.css';
 const Cart = () => {
   const cart = useSelector((state) => state.products.cart);
   const dispatch = useDispatch();
+
+  const totalPrice = useSelector((state) => state.products.totalPrice);
 
   const onAdd = (id) => {
     dispatch(addProduct(id));
@@ -20,8 +23,16 @@ const Cart = () => {
     dispatch(removeProduct(id));
   };
 
+  const sendCart = () => {
+    dispatch(sendOrder(cart));
+  };
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+  }, [cart, totalPrice]);
+
   const allQty = cart.length;
-  const totalPrice = useSelector((state) => state.products.totalPrice);
 
   const form = cart.length ? (
     <div className='Cart'>
@@ -49,7 +60,8 @@ const Cart = () => {
           <h4>Итого</h4>
           <hr />
           <p>{allQty} вещи</p>
-          <p>Общая сумма {totalPrice}</p>
+          <p>Общая сумма {totalPrice} тг</p>
+          <button onClick={sendCart}>Оформить</button>
         </div>
       </div>
     </div>

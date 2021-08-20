@@ -8,13 +8,16 @@ import {
   REMOVE_PRODUCT,
 } from '../actionTypes';
 
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
+const totalPriceFromLocalStorage = JSON.parse(localStorage.getItem('totalPrice'));
+
 const initialState = {
   categories: [],
   products: [],
   getCatError: null,
   getProductError: null,
-  cart: [],
-  totalPrice: 0,
+  cart: cartFromLocalStorage,
+  totalPrice: totalPriceFromLocalStorage,
 };
 
 const reducer = (state = initialState, action) => {
