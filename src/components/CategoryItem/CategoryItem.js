@@ -5,7 +5,7 @@ import './CategoryItem.css';
 const CategoryItem = ({ image, name, id }) => {
   const readyImage = `https://api.doover.tech${image}`;
   return (
-    <NavLink className='card' to={`/products?category=${id}`}>
+    <NavLink className='catCard' to={`/products?category=${id}`}>
       <img src={readyImage} alt='Avatar' style={{ width: '100%' }} className='catImage' />
       <div className='container'>
         <h4>
