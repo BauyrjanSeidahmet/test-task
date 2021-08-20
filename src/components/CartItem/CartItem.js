@@ -6,8 +6,10 @@ const CartItem = ({ image, price, name, qty }) => {
 
   return (
     <div className='cartItem'>
-      <div className='detail'>?</div>
-      <div>
+      <div className='detail'>
+        <button>?</button>
+      </div>
+      <div className='imageWrap'>
         <img src={readyImage} alt='product' className='cardImage' />
       </div>
       <div className='textInfo'>
@@ -20,9 +22,11 @@ const CartItem = ({ image, price, name, qty }) => {
         <button>-</button>
       </div>
       <div>
-        <p className='price'>{price}</p>
+        <p className='price'>{price} тг</p>
       </div>
-      <div className='remove'>X</div>
+      <div className='remove'>
+        <button>X</button>
+      </div>
     </div>
   );
 };
