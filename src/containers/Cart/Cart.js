@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CartItem from '../../components/CartItem/CartItem';
-import { addProduct, decreaseProduct, removeProduct } from '../../store/actions/productsActions';
+import { addProduct, clearCart, decreaseProduct, removeProduct } from '../../store/actions/productsActions';
+import Modal from '../../components/UI/Modal/Modal';
+import { push } from 'connected-react-router';
 import './Cart.css';
 
 const Cart = () => {
   const cart = useSelector((state) => state.products.cart);
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
   const totalPrice = useSelector((state) => state.products.totalPrice);
@@ -23,8 +26,17 @@ const Cart = () => {
     dispatch(removeProduct(id));
   };
 
-  const sendCart = () => {
-    dispatch(sendOrder(cart));
+  const onClick = () => {
+    setShowModal(true);
+  };
+
+  const sendOrder = () => {
+    dispatch(clearCart());
+    dispatch(push('/'));
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   useEffect(() => {
@@ -36,6 +48,12 @@ const Cart = () => {
 
   const form = cart.length ? (
     <div className='Cart'>
+      <Modal show={showModal} close={closeModal}>
+        <h3>Потвердите ваш заказ</h3>
+        <p>Отслеживайте статус вашего заказа в профиле</p>
+        <button onClick={sendOrder}>Потвердить</button>
+        <button onClick={closeModal}>Отменить</button>
+      </Modal>
       <div>
         {cart.map((item) => {
           return (
@@ -61,7 +79,7 @@ const Cart = () => {
           <hr />
           <p>{allQty} вещи</p>
           <p>Общая сумма {totalPrice} тг</p>
-          <button onClick={sendCart}>Оформить</button>
+          <button onClick={onClick}>Оформить</button>
         </div>
       </div>
     </div>
