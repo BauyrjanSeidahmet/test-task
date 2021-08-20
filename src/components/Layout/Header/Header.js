@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import SearchBar from '../../SearchBar/SearchBar';
 import AccountIcon from '../../../assets/images/account.svg';
@@ -35,7 +35,7 @@ const Header = () => {
             </>
           ) : (
             <>
-              <NavLink to='/login' component={Link} color='inherit'>
+              <NavLink to='/login' color='inherit'>
                 Войти
               </NavLink>
             </>
