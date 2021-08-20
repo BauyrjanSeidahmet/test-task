@@ -20,25 +20,38 @@ const Cart = () => {
     dispatch(removeProduct(id));
   };
 
+  const allQty = cart.length;
+  const totalPrice = useSelector((state) => state.products.totalPrice);
+
   const form = cart.length ? (
     <div className='Cart'>
-      {cart.map((item) => {
-        return (
-          <CartItem
-            key={item.uuid}
-            id={item.uuid}
-            image={item.picture}
-            price={item.price}
-            name={item.name}
-            qty={item.qty}
-            brand={item.hint.title}
-            description={item.hint.description}
-            onAdd={() => onAdd(item.uuid)}
-            onDecrease={() => onDecrease(item.uuid)}
-            onRemove={() => onRemove(item.uuid)}
-          />
-        );
-      })}
+      <div>
+        {cart.map((item) => {
+          return (
+            <CartItem
+              key={item.uuid}
+              id={item.uuid}
+              image={item.picture}
+              price={item.price}
+              name={item.name}
+              qty={item.qty}
+              brand={item.hint.title}
+              description={item.hint.description}
+              onAdd={() => onAdd(item.uuid)}
+              onDecrease={() => onDecrease(item.uuid)}
+              onRemove={() => onRemove(item.uuid)}
+            />
+          );
+        })}
+      </div>
+      <div className='total'>
+        <div className='totalBox'>
+          <h4>Итого</h4>
+          <hr />
+          <p>{allQty} вещи</p>
+          <p>Общая сумма {totalPrice}</p>
+        </div>
+      </div>
     </div>
   ) : (
     <h1>Nothing found</h1>
