@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Modal from '../../components/UI/Modal/Modal';
 import ModalInside from '../ModalInside/ModalInside';
 
-const ProductItem = ({ image, name, brand, description, chosen, onAdd, onDecrease }) => {
+const ProductItem = ({ image, name, brand, description, chosen, onAdd, onDecrease, price }) => {
   const [showModal, setShowModal] = useState(false);
   const readyImage = `https://api.doover.tech${image}`;
 
@@ -23,17 +23,23 @@ const ProductItem = ({ image, name, brand, description, chosen, onAdd, onDecreas
       <Modal show={showModal} close={closeModal}>
         <ModalInside image={readyImage} name={name} brand={brand} description={description} />
       </Modal>
-      <img src={readyImage} alt='Avatar' className='catImage' />
-      <button onClick={onClickProduct}>?</button>
-      <div className='container'>
+      <div className='prodImageWrap'>
+        <img src={readyImage} alt='Avatar' className='prodCardImage' />
+      </div>
+      <div className='productText'>
         <h4>
           <b>{name}</b>
         </h4>
-        <div>
-          <img alt='plus icon' src={PlusIcon} onClick={onAdd} />
-          {chosen ? <img alt='minus icon' src={MinusIcon} onClick={onDecrease} /> : null}
+        <p>Cрок доставки/2 дня</p>
+        <p>{price} тг</p>
+        <div className='countBtns'>
+          <img alt='plus icon' src={PlusIcon} onClick={onAdd} className='plusBtn' />
           <span>{chosen && chosen.qty}</span>
+          {chosen ? <img alt='minus icon' src={MinusIcon} onClick={onDecrease} /> : null}
         </div>
+      </div>
+      <div className='prodDetail'>
+        <button onClick={onClickProduct}>?</button>
       </div>
     </div>
   );

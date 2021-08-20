@@ -1,4 +1,5 @@
 .card {
+  display: flex;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 90%;
@@ -15,8 +16,33 @@
   padding: 2px 16px;
 }
 
-.catImage {
+.prodImageWrap {
+  align-self: center;
+  width: 50%;
+  padding: 10px;
+}
+
+.prodCardImage {
   width: 100%;
   height: 15vw;
   object-fit: cover;
+}
+
+.productText {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.countBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 0 10px;
+}
+
+.plusBtn {
+  text-align: left;
 }
