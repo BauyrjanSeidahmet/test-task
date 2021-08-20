@@ -25,8 +25,8 @@ const Products = () => {
     dispatch(decreaseProduct(id));
   };
 
-  const category = categories.filter((cat) => cat.uuid === products[0].category);
-  const categoryName = category.length && category[0].name;
+  const category = categories.filter((cat) => cat.uuid === products[0]?.category);
+  const categoryName = category.length ? category[0].name : null;
 
   const form = products.length ? (
     <div className='Products'>
