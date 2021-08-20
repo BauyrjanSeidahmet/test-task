@@ -4,7 +4,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import ModalInside from '../ModalInside/ModalInside';
 import './CartItem.css';
 
-const CartItem = ({ image, price, name, qty, brand, description }) => {
+const CartItem = ({ image, price, name, qty, brand, description, onAdd, onDecrease, onRemove }) => {
   const [showModal, setShowModal] = useState(false);
   const readyImage = `https://api.doover.tech${image}`;
 
@@ -32,15 +32,15 @@ const CartItem = ({ image, price, name, qty, brand, description }) => {
         <p>Срок доставки/2 дня</p>
       </div>
       <div className='count'>
-        <button>+</button>
+        <button onClick={onAdd}>+</button>
         <span>{qty}</span>
-        <button>-</button>
+        <button onClick={onDecrease}>-</button>
       </div>
       <div>
         <p className='price'>{price} тг</p>
       </div>
       <div className='remove'>
-        <button>X</button>
+        <button onClick={onRemove}>X</button>
       </div>
     </div>
   );
