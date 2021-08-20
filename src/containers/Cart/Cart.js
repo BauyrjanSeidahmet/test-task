@@ -44,9 +44,9 @@ const Cart = () => {
     localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
   }, [cart, totalPrice]);
 
-  const allQty = cart.length;
+  const allQty = cart?.length;
 
-  const form = cart.length ? (
+  const form = cart?.length ? (
     <div className='Cart'>
       <Modal show={showModal} close={closeModal}>
         <div className='orderModal'>
