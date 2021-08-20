@@ -5,6 +5,7 @@ import {
   FETCH_CATEGORIES_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
   FETCH_PRODUCTS_SUCCESS,
+  REMOVE_PRODUCT,
 } from '../actionTypes';
 
 const initialState = {
@@ -45,6 +46,11 @@ const reducer = (state = initialState, action) => {
             ? state.cart.filter((item) => item.uuid !== action.id)
             : state.cart.map((item) => (item.uuid === action.id ? { ...item, qty: item.qty - 1 } : item))
           : [...state.cart],
+      };
+    case REMOVE_PRODUCT:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.uuid !== action.id),
       };
     default:
       return state;
