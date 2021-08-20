@@ -17,6 +17,8 @@ const Cart = () => {
             price={item.price}
             name={item.name}
             qty={item.qty}
+            brand={item.hint.title}
+            description={item.hint.description}
           />
         );
       })}
