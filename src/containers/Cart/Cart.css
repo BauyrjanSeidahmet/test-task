@@ -22,3 +22,11 @@
   border-radius: 5px;
   width: 80%;
 }
+
+.modalBtn {
+  margin-right: 20px;
+}
+
+.orderModal {
+  text-align: center;
+}

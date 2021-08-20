@@ -49,10 +49,16 @@ const Cart = () => {
   const form = cart.length ? (
     <div className='Cart'>
       <Modal show={showModal} close={closeModal}>
-        <h3>Потвердите ваш заказ</h3>
-        <p>Отслеживайте статус вашего заказа в профиле</p>
-        <button onClick={sendOrder}>Потвердить</button>
-        <button onClick={closeModal}>Отменить</button>
+        <div className='orderModal'>
+          <h3>Потвердите ваш заказ</h3>
+          <p>Отслеживайте статус вашего заказа в профиле</p>
+          <button className='modalBtn' onClick={sendOrder}>
+            Потвердить
+          </button>
+          <button className='modalBtn' onClick={closeModal}>
+            Отменить
+          </button>
+        </div>
       </Modal>
       <div className='cartItems'>
         {cart.map((item) => {
