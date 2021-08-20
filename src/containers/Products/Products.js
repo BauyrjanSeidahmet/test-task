@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts } from '../../store/actions/productsActions';
+import { addProduct, decreaseProduct, fetchProducts } from '../../store/actions/productsActions';
 import { useLocation } from 'react-router';
 import ProductItem from '../../components/ProductItem/ProductItem';
 import './Products.css';
@@ -16,6 +16,14 @@ const Products = () => {
     dispatch(fetchProducts(url));
   }, [url]);
 
+  const onAdd = (id) => {
+    dispatch(addProduct(id));
+  };
+
+  const onDecrease = (id) => {
+    dispatch(decreaseProduct(id));
+  };
+
   const form = products.length ? (
     <div className='Products'>
       {products.map((product) => {
@@ -28,6 +36,8 @@ const Products = () => {
             price={product.price}
             brand={product.hint.title}
             description={product.hint.description}
+            onAdd={() => onAdd(product.uuid)}
+            onDecrease={() => onDecrease(product.uuid)}
             chosen={cart.filter((currentValue) => currentValue.uuid === product.uuid)[0]}
           />
         );
