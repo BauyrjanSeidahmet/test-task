@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Route, Switch } from 'react-router';
 import { Redirect } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Cart from './containers/Cart/Cart';
