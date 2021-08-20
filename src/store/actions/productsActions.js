@@ -1,5 +1,6 @@
 import {
   ADD_PRODUCT,
+  CLEAR_CART,
   DECREASE_PRODUCT,
   FETCH_CATEGORIES_FAILURE,
   FETCH_CATEGORIES_SUCCESS,
@@ -50,3 +51,4 @@ export const fetchProducts = (url) => {
 export const addProduct = (id) => ({ type: ADD_PRODUCT, id });
 export const decreaseProduct = (id) => ({ type: DECREASE_PRODUCT, id });
 export const removeProduct = (id) => ({ type: REMOVE_PRODUCT, id });
+export const clearCart = () => ({ type: CLEAR_CART });
