@@ -1,12 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import SearchBar from '../../SearchBar/SearchBar';
 import AccountIcon from '../../../assets/images/account.svg';
 import './Header.css';
+import { logoutUser } from '../../../store/actions/usersActions';
 
 const Header = () => {
   const user = useSelector((state) => state.users.user);
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(logoutUser());
+  };
 
   return (
     <div className='header'>
@@ -31,6 +37,9 @@ const Header = () => {
               <div className='account'>
                 <p>User</p>
                 <img className='accountImg' alt='account icon' src={AccountIcon} />
+                <p onClick={logout} className='logoutBtn'>
+                  Выйти
+                </p>
               </div>
             </>
           ) : (
