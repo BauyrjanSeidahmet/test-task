@@ -31,7 +31,7 @@ const reducer = (state = initialState, action) => {
     case ADD_PRODUCT:
       const cart = state.cart;
       const product = state.products.find((prod) => prod.uuid === action.id);
-      const inCart = cart.find((cartItem) => (cartItem.uuid === action.id ? true : false));
+      const inCart = cart?.find((cartItem) => (cartItem.uuid === action.id ? true : false));
       return {
         ...state,
         cart: inCart
