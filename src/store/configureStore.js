@@ -29,6 +29,10 @@ store.subscribe(() => {
     users: {
       user: store.getState().users.user,
     },
+    products: {
+      cart: store.getState().products.cart,
+      totalPrice: store.getState().products.totalPrice,
+    },
   });
 });
 
