@@ -9,16 +9,13 @@ import {
   REMOVE_PRODUCT,
 } from '../actionTypes';
 
-const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
-const totalPriceFromLocalStorage = JSON.parse(localStorage.getItem('totalPrice'));
-
 const initialState = {
   categories: [],
   products: [],
   getCatError: null,
   getProductError: null,
-  cart: cartFromLocalStorage,
-  totalPrice: totalPriceFromLocalStorage,
+  cart: [],
+  totalPrice: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,18 +29,18 @@ const reducer = (state = initialState, action) => {
     case FETCH_PRODUCTS_FAILURE:
       return { ...state, getProductError: action.error };
     case ADD_PRODUCT:
-      const item1 = state.products.find((prod) => prod.uuid === action.id);
-      const inCart = state.cart.find((cartItem) => (cartItem.uuid === action.id ? true : false));
+      const cart = state.cart;
+      const product = state.products.find((prod) => prod.uuid === action.id);
+      const inCart = cart.find((cartItem) => (cartItem.uuid === action.id ? true : false));
       return {
         ...state,
         cart: inCart
-          ? state.cart.map((item) => (item.uuid === action.id ? { ...item, qty: item.qty + 1 } : item))
-          : [...state.cart, { ...item1, qty: 1 }],
-        totalPrice: state.totalPrice + item1.price,
+          ? cart.map((item) => (item.uuid === action.id ? { ...item, qty: item.qty + 1 } : item))
+          : [...cart, { ...product, qty: 1 }],
+        totalPrice: state.totalPrice + product.price,
       };
     case DECREASE_PRODUCT:
       const inCart1 = state.cart.find((cartItem) => (cartItem.uuid === action.id ? true : false));
-
       const itemInCard = state.cart.find((cartItem) => cartItem.uuid === action.id);
       return {
         ...state,
