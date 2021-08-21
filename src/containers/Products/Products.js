@@ -25,10 +25,13 @@ const Products = () => {
     dispatch(decreaseProduct(id));
   };
 
-  const category = categories.filter((cat) => cat.uuid === products[0]?.category);
-  const categoryName = category.length ? category[0].name : null;
+  let categoryName = null;
+  if (categories && products) {
+    const category = categories.filter((cat) => cat.uuid === products[0].category);
+    categoryName = category[0].name;
+  }
 
-  const form = products.length ? (
+  const form = products ? (
     <div className='Products'>
       <h3>Главная/{categoryName}</h3>
       <div className='ProductsList'>
@@ -44,7 +47,7 @@ const Products = () => {
               description={product.hint.description}
               onAdd={() => onAdd(product.uuid)}
               onDecrease={() => onDecrease(product.uuid)}
-              chosen={cart.filter((currentValue) => currentValue.uuid === product.uuid)[0]}
+              chosen={cart?.filter((currentValue) => currentValue.uuid === product.uuid)[0]}
             />
           );
         })}
