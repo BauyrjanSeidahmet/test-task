@@ -22,7 +22,11 @@
 .account {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+.logoutBtn {
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .accountImg {
