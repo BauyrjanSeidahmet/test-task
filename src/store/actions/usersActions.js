@@ -12,11 +12,11 @@ const loginUserFailure = (error) => {
 export const loginUser = (userData) => {
   return async (dispatch) => {
     const headers = {
-      'content-Type': 'application/json',
+      'Content-Type': 'application/json',
     };
     const responseType = 'text';
     try {
-      const response = await axios.post('https://api.doover.tech/api/token', userData, {
+      const response = await axios.post('/api/token', userData, {
         responseType,
         headers: {
           ...headers,
