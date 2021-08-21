@@ -27,8 +27,10 @@ const Products = () => {
 
   let categoryName = null;
   if (categories && products) {
-    const category = categories.filter((cat) => cat.uuid === products[0].category);
-    categoryName = category[0].name;
+    const product = products[0];
+    const categoryArray = categories.filter((cat) => cat.uuid === product?.category);
+    const category = categoryArray[0];
+    categoryName = category?.name;
   }
 
   const form = products ? (
