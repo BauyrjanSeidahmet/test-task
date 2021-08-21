@@ -16,7 +16,7 @@ export const loginUser = (userData) => {
     };
     const responseType = 'text';
     try {
-      const response = await axios.post('/api/token', userData, {
+      const response = await axios.post('/api/token/', userData, {
         responseType,
         headers: {
           ...headers,
