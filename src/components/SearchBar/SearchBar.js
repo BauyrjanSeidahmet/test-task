@@ -1,8 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import SearchIcon from '../../assets/images/search.svg';
 import './SearchBar.css';
-import { NavLink } from 'react-router-dom';
 
 const SearchBar = () => {
   const [input, setInput] = useState('');

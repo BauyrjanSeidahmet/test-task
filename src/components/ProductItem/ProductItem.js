@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ProductItem.css';
 import PlusIcon from '../../assets/images/plus.svg';
 import MinusIcon from '../../assets/images/minus.svg';
-import { useState } from 'react';
 import Modal from '../../components/UI/Modal/Modal';
 import ModalInside from '../ModalInside/ModalInside';
 

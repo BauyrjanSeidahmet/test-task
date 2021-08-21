@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Modal from '../../components/UI/Modal/Modal';
 import ModalInside from '../ModalInside/ModalInside';
 import './CartItem.css';
