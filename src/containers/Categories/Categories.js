@@ -17,7 +17,7 @@ const Categories = () => {
     <div className='Categories'>
       <h3>Категории</h3>
       <div className='CategoriesList'>
-        {categories.map((cat) => {
+        {categories?.map((cat) => {
           return <CategoryItem key={cat.uuid} id={cat.uuid} image={cat.picture} name={cat.name} />;
         })}
       </div>
