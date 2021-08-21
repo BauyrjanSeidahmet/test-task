@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CartItem from '../../components/CartItem/CartItem';
 import { addProduct, clearCart, decreaseProduct, removeProduct } from '../../store/actions/productsActions';
@@ -38,11 +37,6 @@ const Cart = () => {
   const closeModal = () => {
     setShowModal(false);
   };
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-    localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
-  }, [cart, totalPrice]);
 
   const allQty = cart?.length;
 
